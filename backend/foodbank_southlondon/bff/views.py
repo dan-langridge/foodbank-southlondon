@@ -73,6 +73,7 @@ class Actions(flask_restx.Resource):
         html = weasyprint.HTML(string=flask.render_template(f"{template_name}.html", items=items, date=today, driver_name=driver_name,
                                                             staff_mobiles=staff_mobiles), encoding="utf8")
         document = html.render()
+        print(document)
         return Actions._make_pdf_response(document.pages, document.metadata, document.url_fetcher, document._font_config, template_name)
 
     @staticmethod
