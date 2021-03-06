@@ -5,6 +5,7 @@ import Flag from './flag';
 import Sync from './sync';
 import CongestionCharge from '../common/congestion-charge';
 import './styles/list.scss';
+import FilterableColumn from './filter-table';
 
 export default class RequestsList extends React.Component {
 
@@ -103,9 +104,11 @@ export default class RequestsList extends React.Component {
                         <th>Family Size</th>
                         <th>Postcode</th>
                         <th>Packing Date</th>
-                        <th>Time</th>
+                        <th>
+                            <FilterableColumn columnName='Time' />
+                        </th>
                         <th className="cell-with-actions">
-                            Last Status
+                            <FilterableColumn columnName='Last Status' />
                             <button onClick={this.props.onRefresh}>
                                 <Sync />
                             </button>
